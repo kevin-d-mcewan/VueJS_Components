@@ -12,17 +12,17 @@
 	<body>
 		<h1>Build A Component</h1>
 
-		<div id="emit-events-div">
-			<!-- Make sure to do '<div :style...' not '<div: style...' or '<div:style=...' -->
-			<div :style="{fontSize: headerFontSize + 'em'}">
-			<header-component 
-				v-for="header in headers"
-				:key="header.id"
-				:title="header.title"
-				@increase-text-size="headerFontSize += 0.5"
-				@decrease-text-size="headerFontSize -= 0.5"
+		<div id="navigation-div">
+			<button
+				v-for="option in tabs"
+				v-bind:key="option"
+				v-bind:class="['tab-button', {active: currentTab === option }]"
+				v-on:click="currentTab = option"
 			>
-			</header-component>
+				{{option}}
+			</button>
+
+			<component v-bind:is="currentTabComponent"></component>
 		</div>
 
 		<script src="script.js"></script>
