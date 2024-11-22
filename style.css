@@ -4,13 +4,3 @@ body {
 	background-color: #27394a;
 	padding: 5%;
 }
-
-#title {
-	font-style: oblique(1.4);
-	color: plum;
-	font-variant: small-caps;
-}
-
-#chkBoxDiv {
-	display: block;
-}
