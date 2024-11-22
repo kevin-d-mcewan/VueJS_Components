@@ -12,8 +12,17 @@
 	<body>
 		<h1>Build A Component</h1>
 
-		<div id="my-first-div">
-			<my-first-component> </my-first-component>
+		<div id="emit-events-div">
+			<!-- Make sure to do '<div :style...' not '<div: style...' or '<div:style=...' -->
+			<div :style="{fontSize: headerFontSize + 'em'}">
+			<header-component 
+				v-for="header in headers"
+				:key="header.id"
+				:title="header.title"
+				@increase-text-size="headerFontSize += 0.5"
+				@decrease-text-size="headerFontSize -= 0.5"
+			>
+			</header-component>
 		</div>
 
 		<script src="script.js"></script>
