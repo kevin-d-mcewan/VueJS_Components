@@ -10,21 +10,26 @@
 	</head>
 
 	<body>
-		<h1>Build A Component</h1>
+		<h1>Build A Dynamic Component with Binding</h1>
 
 		<div id="navigation-div">
 			<button
+				class="button-85"
 				v-for="option in tabs"
 				v-bind:key="option"
-				v-bind:class="['tab-button', {active: currentTab === option }]"
+				v-bind:class="['tab-button', {
+					active: currentTab === option
+				}]"
 				v-on:click="currentTab = option"
 			>
-				{{option}}
+				{{option.name}}
 			</button>
-
-			<component v-bind:is="currentTabComponent"></component>
+			<component v-bind:is="currentTab.component"></component>
 		</div>
 
 		<script src="script.js"></script>
 	</body>
 </html>
+
+
+

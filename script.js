@@ -1,28 +1,50 @@
+const tabs = [
+	{
+		name: "Homepage",
+		component: {
+			template: `<div>Home information</div>`,
+		},
+	},
+
+	{
+		name: "Products",
+		component: {
+			template: `<div>Products infomation</div>`,
+		},
+	},
+
+	{
+		name: "Contact",
+		component: {
+			template: `<div>Contact information</div>`,
+		},
+	},
+];
+
 const app = Vue.createApp({
 	data() {
 		return {
-			currentTab: "Homepage",
-			tabs: ["Homepage", "Products", "Contact"],
+			tabs,
+			currentTab: tabs[0],
 		};
 	},
 	computed: {
-		currentTabComponent() {
+		getCurrentTab() {
 			return "tab-" + this.currentTab.toLowerCase();
 		},
 	},
 });
 
 app.component("tab-homepage", {
-	template: `<div
-							class="navigation">homepage information</div>`,
+	template: `<div>Home information</div>`,
 });
 
 app.component("tab-products", {
-	template: `<div	class="navigation">product information</div>`,
+	template: `<div>Product Information</div>`,
 });
 
 app.component("tab-contact", {
-	template: `<div class="navigation">contact information</div>`,
+	template: `<div>Contact Information</div>`,
 });
 
 app.mount("#navigation-div");
